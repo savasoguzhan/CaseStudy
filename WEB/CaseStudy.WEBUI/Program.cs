@@ -1,10 +1,14 @@
+using CaseStudy.DAL.Concrete;
+using CaseStudy.EntityLayer.Concrete;
 using Rotativa.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddDbContext<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 

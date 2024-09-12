@@ -26,6 +26,9 @@ builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IMeetingDal, EFMeetingDal>();
 builder.Services.AddScoped<IMeetingService, MeetingManager>();
 
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+
 
 var app = builder.Build();
 

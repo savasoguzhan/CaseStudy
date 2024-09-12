@@ -4,24 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaseStudy.DTO.RegisterDto
+namespace CaseStudy.DTO.LoginDto
 {
-    public class CreateNewUserDto
+    public class LoginUserDto
     {
-        public string Name { get; set; }
-
-        public string Surname { get; set; }
-
-        public string Phone { get; set; }
-
         public string Email { get; set; }
 
         public string Password { get; set; }
-
-        
-
-
-
-
     }
 }
