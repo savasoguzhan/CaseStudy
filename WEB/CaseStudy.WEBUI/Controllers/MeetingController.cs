@@ -1,6 +1,7 @@
 ﻿using CaseStudy.DTO.Meeting;
 using CaseStudy.EntityLayer.Concrete;
 using CaseStudy.WEBUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Rotativa.AspNetCore;
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace CaseStudy.WEBUI.Controllers
 {
+    [Authorize]
     public class MeetingController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
