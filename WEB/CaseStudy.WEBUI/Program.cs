@@ -3,6 +3,9 @@ using CaseStudy.EntityLayer.Concrete;
 using CaseStudy.WEBUI.Helper;
 using CaseStudy.WEBUI.Service;
 using Rotativa.AspNetCore;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using CaseStudy.WEBUI.Validation.RegisterValidationRules;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Context>();
@@ -12,6 +15,9 @@ builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
+
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
