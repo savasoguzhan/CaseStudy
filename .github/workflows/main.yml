@@ -21,12 +21,12 @@ jobs:
           dotnet-version: '8.0.x'
           
       - name: Restore
-        run: dotnet restore ./AzurePipeLineDemo.sln
+        run: dotnet restore ./CaseStudy.sln
         
       - name: Build
-        run: dotnet build ./AzurePipeLineDemo.sln --configuration Release --no-restore
+        run: dotnet build ./CaseStudy.sln --configuration Release --no-restore
       - name: Publish
-        run: dotnet publish ./AzurePipeLineDemo.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish ./CaseStudy.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
       - name: Deployment
         uses: azure/webapps-deploy@v2
